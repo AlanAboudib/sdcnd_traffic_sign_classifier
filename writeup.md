@@ -53,9 +53,19 @@ signs data set:
 
 #### 2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing the distribution of classes (number of examples of each class) in the training set. Such a visualisation is important in order to check out whether the training set is balanced or skewed and help take later decisions in dataset augmentation (if needed) and training.
+First, I showed some sample images from the training set, which is necessary to get a sense of how images look like:
+
+![samples of the training set](images/training_set.png)
+
+I also included image samples from the test set in order to check out how similar they look to the training set:
+
+![samples of the test set](images/test_set.png)
+
+Now, here is an exploratory visualization of the data set. It is a bar chart showing the distribution of classes (number of examples of each class) in the training set. Such a visualisation is important in order to check out whether the training set is balanced or skewed and help take later decisions in dataset augmentation (if needed) and training.
 
 ![distribution of classes in the training set](images/class_distribution_training.png)
+
+We notice that the training set is actually skewed. However, in the following, I decided to follow an Occam Razor approach; I trained using the skewed training set without trying to balance it. I suggested that if this gives me a satisfactory result it would be ok. Otherwise, I will go on and try to balance the dataset.
 
 ### Design and Test a Model Architecture
 
@@ -63,11 +73,11 @@ Here is an exploratory visualization of the data set. It is a bar chart showing 
 
 I kept training image in RGB format since colors play a facilitating role in recognizing traffic signs.
 
-Here is an example of a traffic sign image before and after grayscaling.
+As a last step, I normalized the image data to the interval [-1,+1] which is a convenient way to normalize image data that help improve training and convergence. Since image pixels before normalization have values in the interval [0,255]. The normalization formula I used is:
 
-![alt text][image2]
+new_value = (old_value - 128) / 128
 
-As a last step, I normalized the image data because ...
+I also converted integer labels to one-hot vector formats which is necessary to use when working with convolutional neural networks. For that I used the `OneHotEncoder` class in python's `SciKit Learn` package.
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
