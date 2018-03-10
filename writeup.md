@@ -55,7 +55,7 @@ signs data set:
 
 Here is an exploratory visualization of the data set. It is a bar chart showing the distribution of classes (number of examples of each class) in the training set. Such a visualisation is important in order to check out whether the training set is balanced or skewed and help take later decisions in dataset augmentation (if needed) and training.
 
-![distribution of classes in the training set]['images/class_distribution_training.png']
+![distribution of classes in the training set](images/class_distribution_training.png)
 
 ### Design and Test a Model Architecture
 
