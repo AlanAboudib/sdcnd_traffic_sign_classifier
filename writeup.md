@@ -142,31 +142,41 @@ Finally, I experimented with 20, 30 and 40 epochs and found that 40 gives the mo
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are five German traffic signs that I found on the web:
+Here are 10 German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![new sign images downloaded from the web](web_signs.png)
 
-The first image might be difficult to classify because ...
+Before feeding these images into the classifier, they were preprocessed in the exact same way as the training/validation/test set image. So they were resized to a size of 32x32 with 3 RGB channels, and then they were normalized to the interval [-1,+1].
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
-Here are the results of the prediction:
+Here is a snapshot of the results of the prediction:
+
+![Web sign predictions](web_sign_predictions.png)
+
+Notice the asterisk next to the wrong predictions.
+
+Now, here is a table summarizing these predictions:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| Speed limit (30km/h)  	| Speed limit (30km/h)    									|
+| Road Work  	| Road work    									|
+| Yield   	| Yield   									|
+| Stop  	| Stop    									|
+| Double curve  	| Children crossing    									|
+| No passing  	| No passing    									|
+| Righ-of-way at the next intersection  	| Righ-of-way at the next intersection   									|
+| Priority road  	| Priority road    									|
+| Keep right  	| Keep right    									|
+| Ahead only  	| Ahead only    									| 
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 9 of the 10 traffic signs, which gives an accuracy of 90%. This compares favorably to the accuracy on the test set of 94%.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for making Top 5 predictions on my final model is located in the 24th cell of the Ipython notebook.
 
 For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
@@ -181,7 +191,5 @@ For the first image, the model is relatively sure that this is a stop sign (prob
 
 For the second image ... 
 
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-#### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
 
 
