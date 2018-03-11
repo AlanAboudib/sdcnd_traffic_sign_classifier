@@ -1,12 +1,13 @@
 # **Traffic Sign Recognition Project** 
 
 The goals / steps of this project are the following:
-- Load the data set (see below for links to the project data set)
-- Explore, summarize and visualize the data set
-- Design, train and test a model architecture
-- Use the model to make predictions on new images
-- Analyze the softmax probabilities of the new images
-- Summarize the results with a written report
+
+* Load the data set (see below for links to the project data set)
+* Explore, summarize and visualize the data set
+* Design, train and test a model architecture
+* Use the model to make predictions on new images
+* Analyze the softmax probabilities of the new images
+* Summarize the results with a written report
 
 
 [//]: # (Image References)
@@ -99,22 +100,24 @@ My final model consisted of the following layers:
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an Adam Optimizer which is easier to configure since it can work well with minimal change of its default parameters (I needed only to set its training rate). In Tensorflow, this can be done easilty using the `tf.train.AdamOptimizer()` function. I set the optimizer to minimize the cross entropy loss computed using the softmax probabilities of each class.
+To train the model, I used an Adam Optimizer which is easier to configure since it can work well with minimal change of its default parameters (I needed only to set its training rate). In Tensorflow, this can be done easily using the `tf.train.AdamOptimizer()` function. I set the optimizer to minimize the cross entropy loss computed using the softmax probabilities of each class.
 
 Here are the hyperparameters I used to reach the required performance:
-- learning rate: 0.0001
-- batch size: 128
-- keep probability: 0.5
-- epochs = 40
+
+* learning rate: 0.0001
+* batch size: 128
+* keep probability: 0.5
+* epochs = 40
 
 In the following section, I will describe how I chose these parameters.
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 Let me start by showing off my final model results:
-- training set accuracy: 100%
-- validation set accuracy: ~95%
-- test set accuracy: 94%
+
+* training set accuracy: 100%
+* validation set accuracy: ~95%
+* test set accuracy: 94%
 
 Here is a snapshot showing how training and validation performances are shown in my code:
 
