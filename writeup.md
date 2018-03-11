@@ -1,20 +1,12 @@
-# **Traffic Sign Recognition** 
-
-## Writeup
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
----
-
-**Build a Traffic Sign Recognition Project**
+# **Traffic Sign Recognition Project** 
 
 The goals / steps of this project are the following:
-* Load the data set (see below for links to the project data set)
-* Explore, summarize and visualize the data set
-* Design, train and test a model architecture
-* Use the model to make predictions on new images
-* Analyze the softmax probabilities of the new images
-* Summarize the results with a written report
+- Load the data set (see below for links to the project data set)
+- Explore, summarize and visualize the data set
+- Design, train and test a model architecture
+- Use the model to make predictions on new images
+- Analyze the softmax probabilities of the new images
+- Summarize the results with a written report
 
 
 [//]: # (Image References)
@@ -101,28 +93,47 @@ My final model consisted of the following layers:
 | Dropout	      	| 				|
 | Fully connected		| 43 output units        									|
 | Softmax				|        									|
-|						|												|
-|						|												|
+
  
 
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an ....
+To train the model, I used an Adam Optimizer which is easier to configure since it can work well with minimal change of its default parameters (I needed only to set its training rate). In Tensorflow, this can be done easilty using the `tf.train.AdamOptimizer()` function. I set the optimizer to minimize the cross entropy loss computed using the softmax probabilities of each class.
+
+Here are the hyperparameters I used to reach the required performance:
+- learning rate: 0.0001
+- batch size: 128
+- keep probability: 0.5
+- epochs = 40
+
+In the following section, I will describe how I chose these parameters.
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
-My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+Let me start by showing off my final model results:
+- training set accuracy: 100%
+- validation set accuracy: ~95%
+- test set accuracy: 94%
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
+Here is a snapshot showing how training and validation performances are shown in my code:
+
+![Training and validation accuracy](images/train_validation_acc.png)
+
+Those are satisfactory results showing no significant overfitting.
+
+However, this final model was obtained after an iterative process. I started off by a similar architecture execluding dropout. With such model, I could reach a validation accuracy of about 0.89 with a trainging accuracy of 1.0 which indicated a more significant overfitting phenomenon. I then decided to add the dropout layers which has a regularization effect that usually helps reduce overfitting. With that, it was possible to reach a validation accuracy between 0.94 and 0.95.
+
+
+In order to set these hyperparameters, I used a manual tuning approach (A better approach would have been to use random search for instance).
+
+For the learning rate, I started by a low one (0.00001) and increased it gradually by multiples of 5 (0.00001, 0.00005, 0.0001, etc)  while fixing all other hyperparameters.
+
+For the batch size, I tested with (32, 64, 128) and found that 128 gives the best performance.
+
+For the keep probability used in dropout, I tried (0.5, 0.6, 0.7, 0.8) and settled on 0.5.
+
+Finally, I experimented with 20, 30 and 40 epochs and found that 40 gives the most satisfactory performance on the validation set.
 
 ### Test a Model on New Images
 
