@@ -2,7 +2,7 @@
 
 The goals / steps of this project are the following:
 
-* Load the data set (see below for links to the project data set)
+* Load the data set 
 * Explore, summarize and visualize the data set
 * Design, train and test a model architecture
 * Use the model to make predictions on new images
@@ -29,7 +29,7 @@ The goals / steps of this project are the following:
 
 #### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
-You're reading it! Please check the associated Ipython notebook 'Traffic_Sign_Classifier.ipynb' that contains all of the project code.
+You're reading it! Please check the associated Ipython notebook 'Traffic_Sign_Classifier.ipynb' included in this submission that contains all of the project code.
 
 ### Data Set Summary & Exploration
 
@@ -134,7 +134,7 @@ For the learning rate, I started by a low one (0.00001) and increased it gradual
 
 For the batch size, I tested with (32, 64, 128) and found that 128 gives the best performance.
 
-For the keep probability used in dropout, I tried (0.5, 0.6, 0.7, 0.8) and settled on 0.5.
+For the keep probability used in dropout, I tried (0.5, 0.6, 0.7, 0.8) and settled on 0.5. For testing and validation, keep probability was set to 1.
 
 Finally, I experimented with 20, 30 and 40 epochs and found that 40 gives the most satisfactory performance on the validation set.
 
