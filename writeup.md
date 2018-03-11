@@ -146,6 +146,8 @@ Here are 10 German traffic signs that I found on the web:
 
 ![new sign images downloaded from the web](images/web_signs.png)
 
+By just looking at these images, I would expect that speed limit signs would pose some difficulty for classification as they are visually very similar. Also, I would expect that the classifier might confuse signs that has similar geometrical shapes and colors, e.g., among triangular red-and-white signs  (double curve, road work, priority road, etc.) However, let's check that out with the classifier.
+
 Before feeding these images into the classifier, they were preprocessed in the exact same way as the training/validation/test set image. So they were resized to a size of 32x32 with 3 RGB channels, and then they were normalized to the interval [-1,+1].
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
