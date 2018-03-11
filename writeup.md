@@ -29,7 +29,7 @@ The goals / steps of this project are the following:
 
 #### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+You're reading it! Please check the associated Ipython notebook 'Traffic_Sign_Classifier.ipynb' that contains all of the project code.
 
 ### Data Set Summary & Exploration
 
@@ -125,7 +125,7 @@ Here is a snapshot showing how training and validation performances are shown in
 
 Those are satisfactory results showing no significant overfitting.
 
-However, this final model was obtained after an iterative process. I started off by a similar architecture execluding dropout. With such model, I could reach a validation accuracy of about 0.89 with a trainging accuracy of 1.0 which indicated a more significant overfitting phenomenon. I then decided to add the dropout layers which has a regularization effect that usually helps reduce overfitting. With that, it was possible to reach a validation accuracy between 0.94 and 0.95.
+However, this final model was obtained after an iterative process. I started off by using a similar architecture execluding dropout. By this initial architecture choice, I meant to start by a small standard network that I estimated convenient for the size of the dataset. With such model, I could reach a validation accuracy of about 0.89 with a trainging accuracy of 1.0 which indicated a more significant overfitting phenomenon. I then decided to add the dropout layers which has a regularization effect that usually helps reduce overfitting. With that, it was possible to reach a validation accuracy between 0.94 and 0.95.
 
 
 In order to set these hyperparameters, I used a manual tuning approach (A better approach would have been to use random search for instance).
@@ -144,7 +144,7 @@ Finally, I experimented with 20, 30 and 40 epochs and found that 40 gives the mo
 
 Here are 10 German traffic signs that I found on the web:
 
-![new sign images downloaded from the web](web_signs.png)
+![new sign images downloaded from the web](images/web_signs.png)
 
 Before feeding these images into the classifier, they were preprocessed in the exact same way as the training/validation/test set image. So they were resized to a size of 32x32 with 3 RGB channels, and then they were normalized to the interval [-1,+1].
 
@@ -152,7 +152,7 @@ Before feeding these images into the classifier, they were preprocessed in the e
 
 Here is a snapshot of the results of the prediction:
 
-![Web sign predictions](web_sign_predictions.png)
+![Web sign predictions](images/web_sign_predictions.png)
 
 Notice the asterisk next to the wrong predictions.
 
@@ -178,18 +178,29 @@ The model was able to correctly guess 9 of the 10 traffic signs, which gives an 
 
 The code for making Top 5 predictions on my final model is located in the 24th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first image, the model is very confident that this is a 30km/h speed limit sign (probability of about 93%), which is true. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+| 0.932         			| speed limit 30km/h   									| 
+| 0.055    				| speed limit 20km/h 										|
+| 0.012					| speed limit 50km/h											|
+| 8.29e-07	      			| double curve				 				|
+| 3.27e-07				    | road narrows on the right      							|
 
 
-For the second image ... 
+On all other images, the model shows high confidence in its predictions including when it makes a wrong prediction.
 
+Here are some screen shots of Top-5 predictions on other images:
 
+![top-5 predictions](images/image2_top5.png)
+![top-5 predictions](images/image2_top5.png)
+![top-5 predictions](images/image2_top5.png)
+![top-5 predictions](images/image2_top5.png)
+
+#### Conclusion
+
+In this project, we designed and trained a CNN-based classifier to recognize German traffic sign images. We saw that with some convenient architectural choices, we have been able to reach a high performance on the validation and test sets. Even more, we were able to reach a decent classification accuracy on arbitrary German traffic sign images found on the web which is a good indication that the network has generalized well.
+
+To obtain even higher accuracy, I suggest that some effort should be made on augmenting the dataset and balancing its classes. However, I have not done this for this project in order to show how high performance can be obtained only by carefully designing the network.
 
